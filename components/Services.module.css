@@ -1,0 +1,290 @@
+.services {
+  min-height: 80vh;
+  background-color: var(--color-black);
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.servicesContent {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+/* Lado Esquerdo - Card Laranja */
+.leftSide {
+  width: 50%;
+  background-color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 60px 40px 60px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.orangeCard {
+  background: var(--color-orange);
+  border-radius: 32px;
+  width: 750px;
+  height: 400px;
+  position: relative;
+  padding: 50px 45px;
+  overflow: visible;
+  animation: fadeIn 1s ease-out;
+  margin-right: -200px;
+}
+
+/* Ícone Estrela */
+.iconStar {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 60px;
+  color: var(--color-white);
+  z-index: 3;
+  font-weight: 400;
+}
+
+/* Arara no topo */
+.araraImage {
+  position: absolute;
+  top: -50px;
+  right: 80px;
+  width: 180px;
+  height: auto;
+  z-index: 4;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Conteúdo do Card */
+.cardContent {
+  position: relative;
+  z-index: 2;
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.description {
+  font-size: 15px;
+  color: var(--color-white);
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* Device Container */
+.deviceContainer {
+  position: absolute;
+  bottom: -35px;
+  right: 0px;
+  z-index: 2;
+}
+
+.tabletMockup {
+  width: 280px;
+  height: 360px;
+  background: var(--color-white);
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+  transform: rotate(-8deg);
+  position: relative;
+}
+
+.tabletScreen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 30%, #a8edea 60%, #fed6e3 100%);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tabletScreen::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: linear-gradient(45deg,
+    rgba(255,255,255,0.2) 0%,
+    transparent 50%,
+    rgba(0,0,0,0.2) 100%);
+}
+
+/* Lado Direito - Foto */
+.rightSide {
+  width: calc(50% + 200px);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.photoContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px 0 0 32px;
+}
+
+.photoPlaceholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.photoPlaceholder::after {
+  content: '👥 Foto de equipe trabalhando';
+  position: absolute;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .servicesContent {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .leftSide {
+    width: 100%;
+    min-height: 70vh;
+    justify-content: center;
+  }
+
+  .orangeCard {
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    min-height: 600px;
+    margin-left: 0;
+  }
+
+  .rightSide {
+    width: 100%;
+    min-height: 400px;
+  }
+
+  .araraImage {
+    width: 180px;
+    top: -50px;
+    right: 40px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .tabletMockup {
+    width: 260px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    min-height: auto;
+  }
+
+  .leftSide {
+    padding: 40px 20px;
+  }
+
+  .orangeCard {
+    padding: 40px 30px;
+    min-height: 550px;
+    width: 95%;
+  }
+
+  .iconStar {
+    font-size: 32px;
+    top: 30px;
+    left: 30px;
+  }
+
+  .araraImage {
+    width: 150px;
+    top: -40px;
+    right: 30px;
+  }
+
+  .cardContent {
+    margin-top: 50px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .deviceContainer {
+    bottom: -25px;
+    right: -25px;
+  }
+
+  .tabletMockup {
+    width: 220px;
+    height: 290px;
+  }
+
+  .rightSide {
+    min-height: 350px;
+  }
+}

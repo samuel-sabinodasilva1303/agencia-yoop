@@ -1,0 +1,280 @@
+.briefing {
+  min-height: 80vh;
+  padding: 30px 40px;
+  background: var(--color-black);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.briefingContent {
+  max-width: 1400px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Lado Esquerdo - Lista */
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: fadeIn 1s ease-out;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  left: -60px;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 4;
+  box-shadow: 0 8px 24px rgba(255, 140, 0, 0.4);
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.briefingItem {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.checkmark {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.itemContent {
+  flex: 1;
+}
+
+.itemTitle {
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+
+.itemDescription {
+  color: var(--color-white);
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Lado Direito - Imagem e Cards */
+.rightSide {
+  position: relative;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.photoContainer {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  border-radius: 24px;
+  overflow: visible;
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.photoPlaceholder::after {
+  content: '👥 Foto de equipe trabalhando';
+  position: absolute;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Arara no canto superior direito */
+.araraContainer {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  z-index: 3;
+}
+
+.araraImage {
+  width: 180px;
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Card laranja no canto inferior direito */
+.resultCard {
+  position: absolute;
+  bottom: 80px;
+  right: -30px;
+  background: var(--color-black);
+  border: 3px solid var(--color-orange);
+  padding: 20px 24px;
+  border-radius: 16px;
+  max-width: 280px;
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.3);
+  z-index: 2;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cardIcon {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.cardText {
+  color: var(--color-white);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cardText strong {
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .briefingContent {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .photoContainer {
+    height: 400px;
+  }
+
+  .araraContainer {
+    top: -30px;
+    right: -30px;
+  }
+
+  .araraImage {
+    width: 150px;
+  }
+
+  .resultCard {
+    bottom: 60px;
+    right: -25px;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .briefing {
+    padding: 60px 20px;
+  }
+
+  .briefingContent {
+    gap: 40px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 10px 20px;
+    left: -40px;
+    top: 15px;
+  }
+
+  .itemTitle {
+    font-size: 14px;
+  }
+
+  .itemDescription {
+    font-size: 13px;
+  }
+
+  .photoContainer {
+    height: 350px;
+  }
+
+  .araraContainer {
+    top: -20px;
+    right: -20px;
+  }
+
+  .araraImage {
+    width: 120px;
+  }
+
+  .resultCard {
+    bottom: 50px;
+    right: -20px;
+    max-width: 220px;
+    padding: 16px 20px;
+  }
+
+  .cardText {
+    font-size: 14px;
+  }
+}

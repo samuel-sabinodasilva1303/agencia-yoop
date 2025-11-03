@@ -1,0 +1,294 @@
+/* Hero Component Styles - Main hero section with branding and watermark */
+
+.hero {
+  min-height: 100vh;
+  padding-top: 128px;
+  background-color: var(--color-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 100%;
+  height: calc(100vh - 128px);
+  display: flex;
+  align-items: center;
+}
+
+/* Lado Esquerdo - 40% */
+.leftSide {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Formas Geométricas Laranjas */
+.orangeShape1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32%;
+  height: 121%;
+  background: var(--color-orange);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  z-index: 3;
+}
+
+.orangeShape2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 85%;
+  height: 55%;
+  background: var(--color-orange);
+  clip-path: polygon(0 20%, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* Lado Direito - 60% */
+.rightSide {
+  width: 60%;
+  height: 100%;
+  background-color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 60px;
+  position: relative;
+}
+
+/* Marca d'água de fundo */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.watermarkImage {
+  width: 600px;
+  height: auto;
+  object-fit: contain;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-out;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.logoContainer {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Texto AGÊNCIA */
+.agencia {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: 12px;
+  margin-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Logo Image */
+.logoImage {
+  width: auto;
+  height: 320px;
+  max-width: 100%;
+  object-fit: contain;
+  animation: glow 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px rgba(255, 140, 0, 0.6));
+}
+
+/* Tagline */
+.tagline {
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.white {
+  color: var(--color-white);
+}
+
+.orange {
+  color: var(--color-orange);
+}
+
+/* CTA Buttons */
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-block;
+  padding: 16px 38px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ctaPrimary {
+  background: var(--color-orange);
+  color: var(--color-white);
+  box-shadow: 0 6px 25px rgba(255, 140, 0, 0.4);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(255, 140, 0, 0.6);
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: var(--color-orange);
+  border: 2px solid var(--color-orange);
+}
+
+.ctaSecondary:hover {
+  background: var(--color-orange);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 120px rgba(255, 140, 0, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 160px rgba(255, 140, 0, 1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .logoImage {
+    height: 280px;
+  }
+
+  .agencia {
+    font-size: 38px;
+    letter-spacing: 10px;
+  }
+
+  .tagline {
+    font-size: 50px;
+  }
+
+  .watermarkImage {
+    width: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroContent {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .leftSide {
+    width: 100%;
+    height: 450px;
+  }
+
+  .rightSide {
+    width: 100%;
+    padding: 60px 40px;
+  }
+
+  .logoImage {
+    height: 220px;
+  }
+
+  .agencia {
+    font-size: 34px;
+    letter-spacing: 8px;
+  }
+
+  .tagline {
+    font-size: 42px;
+  }
+
+  .watermarkImage {
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 70px;
+  }
+
+  .leftSide {
+    height: 350px;
+  }
+
+  .rightSide {
+    padding: 50px 30px;
+  }
+
+  .logoImage {
+    height: 160px;
+  }
+
+  .agencia {
+    font-size: 28px;
+    letter-spacing: 6px;
+    margin-bottom: 15px;
+  }
+
+  .tagline {
+    font-size: 32px;
+    letter-spacing: 0px;
+  }
+
+  .watermarkImage {
+    width: 300px;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    padding: 14px 32px;
+    font-size: 12px;
+  }
+}

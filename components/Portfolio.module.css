@@ -1,0 +1,252 @@
+.portfolio {
+  min-height: 80vh;
+  background-color: var(--color-black);
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.portfolioContent {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Área Superior - Projetos */
+.projectsArea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0;
+  gap: 40px;
+}
+
+/* Tablet no canto esquerdo */
+.tabletContainer {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tablet {
+  width: 200px;
+  height: 280px;
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  transform: rotate(-15deg);
+  position: relative;
+}
+
+.tabletScreen {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  transition: background 0.5s ease;
+}
+
+.iconStar {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  font-size: 60px;
+  color: var(--color-white);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Carrossel de Projetos */
+.carouselContainer {
+  flex: 1;
+  position: relative;
+  height: 350px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 800px;
+}
+
+.projectsCarousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectCard {
+  position: absolute;
+  width: 200px;
+  height: 280px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projectCard.active {
+  filter: brightness(1.1);
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  transition: background 0.5s ease;
+}
+
+/* Arara no canto direito */
+.araraContainer {
+  flex-shrink: 0;
+  margin-left: -80px;
+  z-index: 5;
+  position: relative;
+}
+
+.araraImage {
+  width: 280px;
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Área Inferior - Texto */
+.infoArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.leftInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  width: fit-content;
+  line-height: 1.4;
+  max-width: 400px;
+}
+
+.title {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.1;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+.orange {
+  color: var(--color-orange);
+}
+
+.black {
+  color: var(--color-white);
+}
+
+.rightInfo {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.description {
+  color: var(--color-white);
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .projectsArea {
+    gap: 40px;
+  }
+
+  .tablet {
+    width: 180px;
+    height: 250px;
+  }
+
+  .araraImage {
+    width: 200px;
+  }
+
+  .title {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 60px 20px;
+  }
+
+  .portfolioContent {
+    gap: 40px;
+  }
+
+  .projectsArea {
+    flex-direction: column;
+    padding: 40px 0;
+    gap: 30px;
+  }
+
+  .tabletContainer {
+    transform: scale(0.8);
+  }
+
+  .carouselContainer {
+    height: 280px;
+  }
+
+  .projectCard {
+    width: 160px;
+    height: 220px;
+  }
+
+  .araraContainer {
+    transform: scale(0.7);
+  }
+
+  .infoArea {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .badge {
+    font-size: 10px;
+    max-width: 320px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}
