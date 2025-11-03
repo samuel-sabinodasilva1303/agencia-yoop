@@ -61,31 +61,40 @@
 
 @media (max-width: 768px) {
   .topbar {
-    padding: 10px 0;
+    padding: 8px 0;
   }
 
   .container {
-    padding: 0 20px;
+    padding: 0 15px;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
 
   .contact {
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .contactItem {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .icon {
+    font-size: 12px;
   }
 
   .social {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .socialLink {
+    width: 28px;
+    height: 28px;
   }
 
   .socialLink svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
 }

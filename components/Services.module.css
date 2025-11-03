@@ -238,53 +238,68 @@
 @media (max-width: 768px) {
   .services {
     min-height: auto;
+    padding: 20px 0;
+  }
+
+  .servicesContent {
+    flex-direction: column;
+    height: auto;
   }
 
   .leftSide {
-    padding: 40px 20px;
+    width: 100%;
+    padding: 30px 20px;
+    justify-content: center;
   }
 
   .orangeCard {
-    padding: 40px 30px;
-    min-height: 550px;
-    width: 95%;
+    padding: 35px 25px;
+    min-height: 480px;
+    width: 90%;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .iconStar {
-    font-size: 32px;
-    top: 30px;
-    left: 30px;
+    font-size: 28px;
+    top: 25px;
+    left: 25px;
   }
 
   .araraImage {
-    width: 150px;
-    top: -40px;
-    right: 30px;
+    width: 130px;
+    top: -35px;
+    right: 25px;
   }
 
   .cardContent {
-    margin-top: 50px;
+    margin-top: 45px;
   }
 
   .title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .description {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .deviceContainer {
-    bottom: -25px;
-    right: -25px;
+    bottom: -20px;
+    right: -20px;
   }
 
   .tabletMockup {
-    width: 220px;
-    height: 290px;
+    width: 200px;
+    height: 260px;
   }
 
   .rightSide {
-    min-height: 350px;
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .photoPlaceholder {
+    border-radius: 24px;
   }
 }

@@ -56,17 +56,18 @@
 
 @media (max-width: 768px) {
   .floatingSocial {
-    right: 15px;
+    right: 20px;
+    bottom: 140px;
     gap: 12px;
   }
 
   .socialIcon {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
   }
 
   .socialIcon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }

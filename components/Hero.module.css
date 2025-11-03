@@ -256,39 +256,50 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 70px;
+    padding-top: 96px;
+    min-height: auto;
+  }
+
+  .heroContent {
+    height: auto;
+    padding: 20px 0;
   }
 
   .leftSide {
-    height: 350px;
+    height: 280px;
   }
 
   .rightSide {
-    padding: 50px 30px;
+    padding: 30px 20px;
   }
 
   .logoImage {
-    height: 160px;
+    height: 140px;
   }
 
   .agencia {
-    font-size: 28px;
-    letter-spacing: 6px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
   }
 
   .tagline {
-    font-size: 32px;
+    font-size: 28px;
     letter-spacing: 0px;
+    margin-bottom: 25px;
   }
 
   .watermarkImage {
-    width: 300px;
+    width: 250px;
+  }
+
+  .logoContainer {
+    margin-bottom: 30px;
   }
 
   .ctaPrimary,
   .ctaSecondary {
-    padding: 14px 32px;
-    font-size: 12px;
+    padding: 12px 28px;
+    font-size: 11px;
   }
 }

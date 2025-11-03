@@ -89,6 +89,12 @@
   }
 
   .rocket {
-    font-size: 24px;
+    font-size: 36px;
+  }
+
+  .flame {
+    width: 14px;
+    height: 24px;
+    bottom: -10px;
   }
 }

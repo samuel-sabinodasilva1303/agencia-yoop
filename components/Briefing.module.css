@@ -232,49 +232,66 @@
 
 @media (max-width: 768px) {
   .briefing {
-    padding: 60px 20px;
+    padding: 30px 20px;
+    min-height: auto;
   }
 
   .briefingContent {
-    gap: 40px;
+    gap: 30px;
   }
 
   .badge {
-    font-size: 12px;
-    padding: 10px 20px;
-    left: -40px;
-    top: 15px;
+    font-size: 11px;
+    padding: 8px 16px;
+    left: -30px;
+    top: 12px;
+  }
+
+  .itemsList {
+    gap: 20px;
   }
 
   .itemTitle {
-    font-size: 14px;
-  }
-
-  .itemDescription {
     font-size: 13px;
   }
 
+  .itemDescription {
+    font-size: 12px;
+  }
+
+  .checkmark {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
   .photoContainer {
-    height: 350px;
+    height: 320px;
   }
 
   .araraContainer {
-    top: -20px;
-    right: -20px;
+    top: -18px;
+    right: -18px;
   }
 
   .araraImage {
-    width: 120px;
+    width: 110px;
   }
 
   .resultCard {
-    bottom: 50px;
-    right: -20px;
-    max-width: 220px;
-    padding: 16px 20px;
+    bottom: 45px;
+    right: -18px;
+    max-width: 200px;
+    padding: 14px 18px;
   }
 
   .cardText {
+    font-size: 12px;
+  }
+
+  .cardIcon {
+    width: 24px;
+    height: 24px;
     font-size: 14px;
   }
 }
