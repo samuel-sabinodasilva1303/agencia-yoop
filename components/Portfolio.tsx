@@ -29,13 +29,24 @@ const portfolioItems = [
 
 export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % portfolioItems.length)
     }, 3000)
 
-    return () => clearInterval(interval)
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+      clearInterval(interval)
+    }
   }, [])
 
   return (
@@ -60,13 +71,14 @@ export default function Portfolio() {
               {portfolioItems.map((item, index) => {
                 const position = (index - currentIndex + portfolioItems.length) % portfolioItems.length
                 const isActive = position === 0
+                const spacing = isMobile ? 160 : 240
 
                 return (
                   <div
                     key={item.id}
                     className={`${styles.projectCard} ${isActive ? styles.active : ''}`}
                     style={{
-                      transform: `translateX(${(position - 1.5) * 240}px) scale(${isActive ? 1.05 : 0.85})`,
+                      transform: `translateX(${(position - 1.5) * spacing}px) scale(${isActive ? 1.05 : 0.85})`,
                       opacity: position <= 3 ? 1 : 0,
                       zIndex: isActive ? 10 : 5 - Math.abs(position - 1.5),
                     }}

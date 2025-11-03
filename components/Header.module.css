@@ -197,6 +197,9 @@
     transform: translateX(100%);
     transition: transform 0.3s ease;
     border-top: 2px solid var(--color-orange);
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .menu.menuOpen {

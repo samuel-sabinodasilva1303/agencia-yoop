@@ -13,7 +13,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
 }
 
 /* Área Superior - Projetos */
@@ -22,8 +22,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 0;
   gap: 40px;
+  padding: 40px 0;
 }
 
 /* Tablet no canto esquerdo */
@@ -69,7 +69,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 800px;
+  min-width: 0;
+  width: 100%;
 }
 
 .projectsCarousel {
@@ -204,16 +205,19 @@
   .portfolio {
     padding: 30px 20px;
     min-height: auto;
+    overflow: hidden;
   }
 
   .portfolioContent {
     gap: 30px;
+    overflow: hidden;
   }
 
   .projectsArea {
     flex-direction: column;
     padding: 20px 0;
     gap: 20px;
+    overflow: hidden;
   }
 
   .tabletContainer {
@@ -221,13 +225,15 @@
   }
 
   .carouselContainer {
-    height: 240px;
-    min-width: auto;
+    height: 220px;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
   }
 
   .projectCard {
-    width: 140px;
-    height: 200px;
+    width: 120px;
+    height: 170px;
   }
 
   .araraContainer {

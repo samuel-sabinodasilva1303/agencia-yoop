@@ -6,6 +6,7 @@
   background-color: var(--color-black);
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .heroContent {
@@ -50,6 +51,7 @@
   background: var(--color-orange);
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
   z-index: 3;
+  max-width: 100%;
 }
 
 .orangeShape2 {
@@ -61,6 +63,7 @@
   background: var(--color-orange);
   clip-path: polygon(0 20%, 100% 100%, 0 100%);
   z-index: 1;
+  max-width: 100%;
 }
 
 /* Lado Direito - 60% */
@@ -258,15 +261,18 @@
   .hero {
     padding-top: 96px;
     min-height: auto;
+    overflow: hidden;
   }
 
   .heroContent {
     height: auto;
     padding: 20px 0;
+    overflow: hidden;
   }
 
   .leftSide {
     height: 280px;
+    overflow: hidden;
   }
 
   .rightSide {

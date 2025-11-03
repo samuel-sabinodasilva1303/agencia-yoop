@@ -234,17 +234,20 @@
   .briefing {
     padding: 30px 20px;
     min-height: auto;
+    overflow: hidden;
   }
 
   .briefingContent {
     gap: 30px;
+    overflow: hidden;
   }
 
   .badge {
     font-size: 11px;
     padding: 8px 16px;
-    left: -30px;
+    left: 0;
     top: 12px;
+    position: relative;
   }
 
   .itemsList {
@@ -271,7 +274,7 @@
 
   .araraContainer {
     top: -18px;
-    right: -18px;
+    right: 0;
   }
 
   .araraImage {
@@ -280,7 +283,7 @@
 
   .resultCard {
     bottom: 45px;
-    right: -18px;
+    right: 0;
     max-width: 200px;
     padding: 14px 18px;
   }

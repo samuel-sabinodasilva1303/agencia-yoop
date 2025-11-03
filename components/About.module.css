@@ -238,14 +238,17 @@
   .about {
     padding: 40px 20px;
     min-height: auto;
+    overflow: hidden;
   }
 
   .aboutContent {
     gap: 40px;
+    overflow: hidden;
   }
 
   .orangeCard {
     width: 85%;
+    max-width: 85vw;
     height: 300px;
     left: 50%;
     right: auto;
