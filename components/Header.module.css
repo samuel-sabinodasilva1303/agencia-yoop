@@ -178,6 +178,7 @@
   .navContent {
     padding: 0 20px;
     justify-content: flex-end;
+    margin-top: 1em;
   }
 
   .hamburger {
@@ -186,7 +187,7 @@
 
   .menu {
     position: fixed;
-    top: 96px;
+    top: 76px;
     left: 0;
     right: 0;
     background-color: rgba(10, 10, 10, 0.98);

@@ -10,17 +10,10 @@ import styles from './Hero.module.css'
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
+      {/* Remove esta linha: <div className={styles.heroBackground}></div> */}
+      
       <div className={styles.heroContent}>
-        {/* Lado Esquerdo - Imagem com formas geométricas */}
-        <div className={styles.leftSide}>
-          <div className={styles.imageContainer}>
-            <div className={styles.imagePlaceholder}></div>
-          </div>
-          <div className={styles.orangeShape1}></div>
-          <div className={styles.orangeShape2}></div>
-        </div>
-
-        {/* Lado Direito - Logo e Texto */}
+        {/* Lado Direito - Logo e Texto (agora centralizado) */}
         <div className={styles.rightSide}>
           <div className={styles.watermark}>
             <img
@@ -31,7 +24,6 @@ export default function Hero() {
           </div>
           <div className={styles.content}>
             <div className={styles.logoContainer}>
-              <h1 className={styles.agencia}>AGÊNCIA</h1>
               <img
                 src="/images/logo-yoop-contorno.png"
                 alt="Yoop"

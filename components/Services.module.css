@@ -160,13 +160,11 @@
   bottom: 0;
 }
 
-.photoPlaceholder::after {
-  content: '👥 Foto de equipe trabalhando';
-  position: absolute;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 20px;
-  font-weight: 500;
-  z-index: 1;
+.photoPlaceholder {
+  background-image: url('/images/saitama.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @keyframes float {
@@ -241,6 +239,10 @@
     padding: 20px 0;
   }
 
+.photoContainer {
+  margin-top: 2em;
+}
+
   .servicesContent {
     flex-direction: column;
     height: auto;
@@ -272,7 +274,7 @@
   .araraImage {
     width: 130px;
     top: -35px;
-    right: 25px;
+    right: -22px;
   }
 
   .cardContent {
@@ -298,9 +300,7 @@
   }
 
   .rightSide {
-    width: 100%;
-    min-height: 300px;
-    overflow: hidden;
+    display: none;
   }
 
   .photoPlaceholder {
