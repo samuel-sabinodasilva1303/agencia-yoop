@@ -8,6 +8,15 @@
 import { useState, useEffect } from 'react'
 import styles from './Portfolio.module.css'
 
+// Definir tipos
+interface ProjectImage {
+  id: number;
+  name: string;
+  gradient: string;
+  coverImage: string;
+  images: string[];
+}
+
 // URLs fornecidas
 const imageUrls = [
   'https://gerarmemes.s3.us-east-2.amazonaws.com/memes/thumb/7aacf1da.jpg',
@@ -22,7 +31,7 @@ const imageUrls = [
 ]
 
 // Dados dos projetos com números reais de imagens
-const portfolioItems = [
+const portfolioItems: ProjectImage[] = [
   {
     id: 1,
     name: "Projeto Alpha",
@@ -103,7 +112,7 @@ const portfolioItems = [
 export default function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedProject, setSelectedProject] = useState<ProjectImage | null>(null)
   const [modalImageIndex, setModalImageIndex] = useState(0)
   const [thumbnailPage, setThumbnailPage] = useState(0)
 
@@ -125,7 +134,7 @@ export default function Portfolio() {
     }
   }, [])
 
-  const openProject = (project, index) => {
+  const openProject = (project: ProjectImage, index: number) => {
     setSelectedProject(project)
     setModalImageIndex(0)
     setThumbnailPage(0)
@@ -153,12 +162,12 @@ export default function Portfolio() {
     }
   }
 
-  const goToImage = (index) => {
+  const goToImage = (index: number) => {
     setModalImageIndex(index)
     updateThumbnailPage(index)
   }
 
-  const updateThumbnailPage = (imageIndex) => {
+  const updateThumbnailPage = (imageIndex: number) => {
     if (selectedProject && !isMobile) {
       const thumbnailsPerPage = 5
       const newPage = Math.floor(imageIndex / thumbnailsPerPage)
@@ -198,6 +207,18 @@ export default function Portfolio() {
 
   const currentThumbnails = getCurrentThumbnails()
   const totalPages = selectedProject ? Math.ceil(selectedProject.images.length / 5) : 0
+
+  // Função para tratar erro de carregamento de imagem
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZW0gbsOjbyBjYXJyZWdvdWE8L3RleHQ+PC9zdmc+';
+  };
+
+  // Função para tratar erro de carregamento de thumbnail
+  const handleThumbnailError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5FcnJvPC90ZXh0Pjwvc3ZnPg==';
+  };
 
   return (
     <section id="portfolio" className={styles.portfolio}>
@@ -268,6 +289,7 @@ export default function Portfolio() {
               src="/images/ARARA.png"
               alt="Mascote Yoop"
               className={styles.araraImage}
+              onError={handleImageError}
             />
           </div>
         </div>
@@ -318,9 +340,7 @@ export default function Portfolio() {
                   src={selectedProject.images[modalImageIndex]}
                   alt={`${selectedProject.name} - Imagem ${modalImageIndex + 1}`}
                   className={styles.modalImage}
-                  onError={(e) => {
-                    e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZW0gbsOjbyBjYXJyZWdvdWE8L3RleHQ+PC9zdmc+'
-                  }}
+                  onError={handleImageError}
                 />
               </div>
               
@@ -350,17 +370,13 @@ export default function Portfolio() {
                           src={image}
                           alt={`Thumbnail ${actualIndex + 1}`}
                           className={styles.thumbnailImage}
-                          onError={(e) => {
-                            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5FcnJvPC90ZXh0Pjwvc3ZnPg=='
-                          }}
+                          onError={handleThumbnailError}
                         />
                       </div>
                     )
                   })}
                 </div>
               </div>
-
-  
             </div>
 
             {/* Indicadores de navegação */}
