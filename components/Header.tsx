@@ -14,7 +14,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'sobre', 'servicos', 'portfolio', 'briefing', 'contato']
+      const sections = ['hero', 'sobre', 'servicos', 'portfolio', 'avaliacoes', 'briefing', 'contato']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -67,6 +67,10 @@ export default function Header() {
             </li>
             <li className={`${styles.menuItem} ${activeSection === 'portfolio' ? styles.active : ''}`}>
               <a href="#portfolio" onClick={handleMenuClick}>PORTFÓLIO</a>
+              <span className={styles.arrowTop}>▼</span>
+            </li>
+            <li className={`${styles.menuItem} ${activeSection === 'avaliacoes' ? styles.active : ''}`}>
+              <a href="#avaliacoes" onClick={handleMenuClick}>AVALIAÇÕES</a>
               <span className={styles.arrowTop}>▼</span>
             </li>
             <li className={`${styles.menuItem} ${activeSection === 'briefing' ? styles.active : ''}`}>
