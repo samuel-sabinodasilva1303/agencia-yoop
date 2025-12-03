@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "name": "Maria Silva",
+    "company": "Boutique Elegance",
+    "role": "Proprietária",
+    "rating": 5,
+    "comment": "A Yoop transformou completamente nossa presença digital! As fotos profissionais e o conteúdo criado aumentaram nossas vendas em 40%. Equipe super dedicada e criativa!",
+    "avatar": null,
+    "date": "2025-05-15"
+  },
+  {
+    "id": 2,
+    "name": "João Santos",
+    "company": "Tech Solutions",
+    "role": "CEO",
+    "rating": 5,
+    "comment": "Profissionalismo de primeira! O trabalho de marketing digital da Yoop nos ajudou a alcançar novos clientes e fortalecer nossa marca. Recomendo de olhos fechados!",
+    "avatar": null,
+    "date": "2025-05-20"
+  },
+  {
+    "id": 3,
+    "name": "Ana Costa",
+    "company": "Studio Fitness",
+    "role": "Diretora",
+    "rating": 5,
+    "comment": "Incrível como o conteúdo visual impacta! As fotos e vídeos criados pela Yoop atraíram muitos novos alunos. Trabalho impecável e resultados reais!",
+    "avatar": null,
+    "date": "2025-06-10"
+  },
+  {
+    "id": 4,
+    "name": "Carlos Oliveira",
+    "company": "Restaurante Sabor",
+    "role": "Chef Proprietário",
+    "rating": 5,
+    "comment": "As fotos dos pratos ficaram espetaculares! Nossas redes sociais explodiram depois do trabalho da Yoop. Clientes novos não param de chegar!",
+    "avatar": null,
+    "date": "2025-07-25"
+  },
+  {
+    "id": 5,
+    "name": "Fernanda Lima",
+    "company": "Clínica Bem Estar",
+    "role": "Dermatologista",
+    "rating": 5,
+    "comment": "A Yoop entendeu perfeitamente nossa identidade visual. O conteúdo criado transmite profissionalismo e confiança. Estamos muito satisfeitos!",
+    "avatar": null,
+    "date": "2025-08-05"
+  },
+  {
+    "id": 6,
+    "name": "Roberto Alves",
+    "company": "Construções Modernas",
+    "role": "Arquiteto",
+    "rating": 5,
+    "comment": "Excelente trabalho! As fotos dos projetos ficaram incríveis e o marketing digital trouxe muitos leads qualificados. Parceria de sucesso!",
+    "avatar": null,
+    "date": "2025-09-18"
+  }
+]
+
