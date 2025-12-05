@@ -14,8 +14,8 @@
 import fs from 'fs'
 import path from 'path'
 
-const DB_FILE = path.join(process.cwd(), 'data', 'reviews.db.json')
-
+const DB_FILE = path.join(process.cwd(), 'data', 'reviews.json')
+// lib/db.ts
 interface Review {
   id: number
   name: string
@@ -27,69 +27,85 @@ interface Review {
   date: string
 }
 
-function ensureDataDir() {
-  const dataDir = path.join(process.cwd(), 'data')
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-}
+// Para Vercel, usaremos uma solução serverless
+// Nota: O estado será resetado entre deploys, mas funciona para demonstração
 
+let memoryCache: Review[] | null = null
+
+// Dados iniciais
+const initialReviews: Review[] = [
+  {
+    id: 1,
+    name: 'Maria Silva',
+    company: 'Boutique Elegance',
+    role: 'Proprietária',
+    rating: 5,
+    comment: 'A Yoop transformou completamente nossa presença digital! As fotos profissionais e o conteúdo criado aumentaram nossas vendas em 40%.',
+    avatar: null,
+    date: '2025-10-15'
+  },
+  {
+    id: 2,
+    name: 'João Santos',
+    company: 'Tech Solutions',
+    role: 'CEO',
+    rating: 5,
+    comment: 'Excelente trabalho na criação do nosso site. Profissionais muito competentes e atenciosos.',
+    avatar: null,
+    date: '2025-09-20'
+  },
+  {
+    id: 3,
+    name: 'Ana Oliveira',
+    company: 'Consultoria Plus',
+    role: 'Diretora de Marketing',
+    rating: 4,
+    comment: 'Ótima parceria. O redesign da nossa identidade visual foi fundamental para o reposicionamento da marca.',
+    avatar: null,
+    date: '2025-08-10'
+  }
+]
+
+// Funções otimizadas para Vercel
 export function getReviews(): Review[] {
   try {
-    ensureDataDir()
-    if (fs.existsSync(DB_FILE)) {
-      const data = fs.readFileSync(DB_FILE, 'utf-8')
-      return JSON.parse(data)
+    // Retorna cache ou dados iniciais
+    if (memoryCache) {
+      return [...memoryCache].sort((a, b) => 
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+      )
     }
-    return []
+    
+    return [...initialReviews].sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    )
   } catch (error) {
-    console.error('Erro ao ler avaliações:', error)
-    return []
+    console.error('Erro ao buscar reviews:', error)
+    return [...initialReviews]
   }
 }
 
-export function addReview(review: Omit<Review, 'id' | 'date'>): Review {
+export function addReview(reviewData: Omit<Review, 'id' | 'date'>): Review {
   try {
-    ensureDataDir()
-    const reviews = getReviews()
-
     const newReview: Review = {
-      id: Date.now(),
-      ...review,
+      ...reviewData,
+      id: Date.now(), // ID único baseado em timestamp
       date: new Date().toISOString().split('T')[0]
     }
-
-    reviews.push(newReview)
-
-    fs.writeFileSync(DB_FILE, JSON.stringify(reviews, null, 2), 'utf-8')
-
+    
+    // Atualiza o cache em memória
+    const currentReviews = memoryCache || initialReviews
+    memoryCache = [newReview, ...currentReviews]
+    
     return newReview
+    
   } catch (error) {
-    console.error('Erro ao adicionar avaliação:', error)
+    console.error('Erro ao adicionar review:', error)
     throw error
   }
 }
 
 export function getReviewById(id: number): Review | null {
-  const reviews = getReviews()
-  return reviews.find((r) => r.id === id) || null
+  const reviews = memoryCache || initialReviews
+  return reviews.find(r => r.id === id) || null
 }
-
-export function deleteReview(id: number): boolean {
-  try {
-    ensureDataDir()
-    const reviews = getReviews()
-    const filtered = reviews.filter((r) => r.id !== id)
-
-    if (filtered.length === reviews.length) {
-      return false
-    }
-
-    fs.writeFileSync(DB_FILE, JSON.stringify(filtered, null, 2), 'utf-8')
-    return true
-  } catch (error) {
-    console.error('Erro ao deletar avaliação:', error)
-    return false
-  }
-}
-

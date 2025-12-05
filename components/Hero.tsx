@@ -40,9 +40,7 @@ export default function Hero() {
             </p>
 
             <div className={styles.ctaButtons}>
-              <a href="#contato" className={styles.ctaPrimary}>
-                INICIAR PROJETO
-              </a>
+<a href="https://wa.me/556781031515" target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary} > INICIAR PROJETO </a>
               <a href="#portfolio" className={styles.ctaSecondary}>
                 VER PORTFÓLIO
               </a>
