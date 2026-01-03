@@ -223,6 +223,26 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className={styles.portfolio}>
       <div className={styles.portfolioContent}>
+                {/* Área Inferior - Texto */}
+        <div className={styles.infoArea}>
+          <div className={styles.leftInfo}>
+            <h2 className={styles.title}>
+              <span className={styles.orange}>Nosso</span><br />
+              <span className={styles.black}>portfólio! (:</span>
+            </h2>
+          </div>
+          <div className={styles.rightInfo}>
+            <div className={styles.badge}>
+              CONHEÇA ALGUNS DE NOSSOS PROJETOS MAIS CRIATIVOS E IMPACTANTES
+            </div>
+            <p className={styles.description}>
+              Conheça a eleição dos meus trabalhos em design gráfico, que incluem
+              criação de identidades visuais, peças para redes sociais, layouts
+              para impressos, outdoors e projetos especiais desenvolvidos com
+              criatividade, estratégia e propósito.
+            </p>
+          </div>
+        </div>
         {/* Área Superior - Projetos */}
         <div className={styles.projectsArea}>
           {/* Tablet no canto esquerdo */}
@@ -294,26 +314,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Área Inferior - Texto */}
-        <div className={styles.infoArea}>
-          <div className={styles.leftInfo}>
-            <h2 className={styles.title}>
-              <span className={styles.orange}>Nosso</span><br />
-              <span className={styles.black}>portfólio! (:</span>
-            </h2>
-          </div>
-          <div className={styles.rightInfo}>
-            <div className={styles.badge}>
-              CONHEÇA ALGUNS DE NOSSOS PROJETOS MAIS CRIATIVOS E IMPACTANTES
-            </div>
-            <p className={styles.description}>
-              Conheça a eleição dos meus trabalhos em design gráfico, que incluem
-              criação de identidades visuais, peças para redes sociais, layouts
-              para impressos, outdoors e projetos especiais desenvolvidos com
-              criatividade, estratégia e propósito.
-            </p>
-          </div>
-        </div>
+
       </div>
 
       {/* Modal do Projeto */}

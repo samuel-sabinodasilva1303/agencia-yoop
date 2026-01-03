@@ -26,9 +26,6 @@
 }
 
 .badge {
-  position: absolute;
-  top: 20px;
-  left: -60px;
   background-color: var(--color-orange);
   color: var(--color-white);
   padding: 12px 24px;

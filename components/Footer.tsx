@@ -22,12 +22,12 @@ export default function Footer() {
           <p className={styles.developerText}>
             Desenvolvido por{' '}
             <a
-              href="https://www.wiseline.com.br"
+              href="https://techpixels.com.br/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.wiselineLink}
             >
-              Wiseline
+              Tech Pixels
             </a>
           </p>
         </div>

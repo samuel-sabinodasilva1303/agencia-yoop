@@ -25,9 +25,15 @@ export default function Briefing() {
 
   return (
     <section id="briefing" className={styles.briefing}>
+      
       <div className={styles.briefingContent}>
         {/* Lado Esquerdo - Lista */}
         <div className={styles.leftSide}>
+              {/* Badge sobre a imagem */}
+            <div className={styles.badge}>
+              <span className={styles.icon}>💡</span>
+              Como funciona o processo criativo?
+            </div>
           <div className={styles.itemsList}>
             {briefingItems.map((item, index) => (
               <div key={index} className={styles.briefingItem}>
@@ -45,12 +51,6 @@ export default function Briefing() {
         <div className={styles.rightSide}>
           <div className={styles.photoContainer}>
             <div className={styles.photoPlaceholder}></div>
-
-            {/* Badge sobre a imagem */}
-            <div className={styles.badge}>
-              <span className={styles.icon}>💡</span>
-              Como funciona o processo criativo?
-            </div>
 
             {/* Arara no canto superior direito */}
             <div className={styles.araraContainer}>

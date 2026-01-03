@@ -86,7 +86,7 @@ export default function Contact() {
               <span className={styles.infoIcon}>📱</span>
               <div>
                 <h4 className={styles.infoTitle}>Telefone</h4>
-                <p className={styles.infoText}>(11) 99999-9999</p>
+                <p className={styles.infoText}>(67) 98103-1515</p>
               </div>
             </div>
 
@@ -94,7 +94,7 @@ export default function Contact() {
               <span className={styles.infoIcon}>📍</span>
               <div>
                 <h4 className={styles.infoTitle}>Localização</h4>
-                <p className={styles.infoText}>São Paulo, SP - Brasil</p>
+                <p className={styles.infoText}>Campo Grande, MS - Brasil</p>
               </div>
             </div>
           </div>
