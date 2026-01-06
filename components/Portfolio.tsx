@@ -236,7 +236,7 @@ export default function Portfolio() {
               CONHEÇA ALGUNS DE NOSSOS PROJETOS MAIS CRIATIVOS E IMPACTANTES
             </div>
             <p className={styles.description}>
-              Conheça a eleição dos meus trabalhos em design gráfico, que incluem
+              Conheça a eleição dos nossos trabalhos em design gráfico, que incluem
               criação de identidades visuais, peças para redes sociais, layouts
               para impressos, outdoors e projetos especiais desenvolvidos com
               criatividade, estratégia e propósito.

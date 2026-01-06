@@ -172,7 +172,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(20px);
   }
 }
 
@@ -290,8 +290,8 @@
   }
 
   .deviceContainer {
-    bottom: -20px;
-    right: -20px;
+    bottom: 20px;
+    right: 20px;
   }
 
   .tabletMockup {
@@ -306,5 +306,268 @@
   .photoPlaceholder {
     border-radius: 24px;
     max-width: 100%;
+  }
+}
+
+
+/* Carrossel Styles - Versão Corrigida */
+.wiselineServices {
+  padding: 60px 20px;
+  background: rgb(0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+.wiselineServices::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.wiselineContainer {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Carrossel Container */
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 20px 0 60px 0;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carouselSlide {
+  flex: 0 0 calc(100% / 3); /* 3 cards no desktop */
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Card de Serviço */
+.serviceCard {
+  background: rgb(0, 0, 0);
+  border-radius: 16px;
+  padding: 25px;
+  border: 2px solid #ff8c00;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  border-color: #ff8c00;
+  box-shadow: 0 10px 30px #ff8c00;
+}
+
+.serviceIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: rgb(4, 4, 4);
+}
+
+.serviceContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.3;
+}
+
+.serviceDescription {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #ffffff;
+  margin: 0;
+  flex: 1;
+}
+
+/* Botões de Navegação */
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #ff8c00;
+  color: #ff8c00;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carouselButton:hover {
+  background: #ff8c00;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}
+
+/* Indicadores de Slide */
+.carouselIndicators {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator:hover {
+  background: #ff8c00;
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background: #ff8c00;
+  transform: scale(1.3);
+}
+
+/* Responsividade do Carrossel */
+@media (max-width: 1024px) {
+  .carouselSlide {
+    flex: 0 0 calc(100% / 2); /* 2 cards em tablets */
+  }
+  
+  .serviceCard {
+    padding: 20px;
+    min-height: 220px;
+  }
+  
+  .serviceIcon {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+  
+  .serviceTitle {
+    font-size: 1rem;
+  }
+  
+  .serviceDescription {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wiselineServices {
+    padding: 50px 15px;
+  }
+  
+  .carouselSlide {
+    flex: 0 0 100%; /* 1 card em mobile */
+    padding: 0 20px;
+  }
+  
+  .carouselButton {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  
+  .prevButton {
+    left: 5px;
+  }
+  
+  .nextButton {
+    right: 5px;
+  }
+  
+  .serviceCard {
+    padding: 25px;
+    min-height: 200px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .carouselIndicators {
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wiselineServices {
+    padding: 40px 10px;
+  }
+  
+  .carouselSlide {
+    padding: 0 15px;
+  }
+  
+  .serviceCard {
+    padding: 20px;
+    min-height: 180px;
+  }
+  
+  .serviceIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .serviceTitle {
+    font-size: 0.95rem;
+  }
+  
+  .serviceDescription {
+    font-size: 0.75rem;
+  }
+  
+  .indicator {
+    width: 6px;
+    height: 6px;
   }
 }
