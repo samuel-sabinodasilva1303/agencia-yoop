@@ -80,7 +80,7 @@ const Services = () => {
   return (
     <>
       {/* Seção Original com Card Laranja */}
-      <section id="servicos" className={styles.services}>
+      <section className={styles.services}>
         <div className={styles.servicesContent}>
           {/* Lado Esquerdo - Card Laranja */}
           <div className={styles.leftSide}>
@@ -119,7 +119,7 @@ const Services = () => {
       </section>
 
       {/* Nova Seção com Carrossel de Serviços */}
-      <section className={styles.wiselineServices}>
+      <section id="servicos" className={styles.wiselineServices}>
         <div className={styles.wiselineContainer}>
           {/* Carrossel Container */}
           <div 
