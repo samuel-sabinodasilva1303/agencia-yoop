@@ -114,14 +114,7 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Lado Direito - Foto (placeholder) */}
-          <div className={styles.rightSide}>
-            <div className={styles.photoContainer}>
-              <div className={styles.photoPlaceholder}>
-                {/* GIF do Saitama permanece aqui */}
-              </div>
-            </div>
-          </div>
+          
         </div>
       </section>
 
